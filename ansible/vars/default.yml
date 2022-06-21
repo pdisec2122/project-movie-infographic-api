@@ -1,0 +1,13 @@
+---
+# application
+default_user: lfilipevm
+default_container_name: project-movie-infographic-api
+default_container_image: pdisec2122/project-movie-infographic-api:latest
+# mysql
+mysql_network: mysqlnetwork
+mysql_container_name: mysqldb
+mysql_container_image: mysql:8
+mysql_container_username: movie_app
+mysql_container_password: 12345YYyy
+mysql_container_root_password: root
+mysql_container_database: bootdb
