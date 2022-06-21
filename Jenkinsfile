@@ -38,7 +38,7 @@ pipeline {
             post {
                 always {
                     dir('target') {
-                        archiveArtifacts artifacts: 'movieinfographic*.war', fingerprint: true
+                        archiveArtifacts artifacts: '*.war', fingerprint: true
                     }
                 }
             }
@@ -49,7 +49,7 @@ pipeline {
             steps {
      
                 copyArtifacts(
-                    filter: 'movieinfographic*.war',
+                    filter: '*.war',
                     projectName: env.JOB_NAME,
                     fingerprintArtifacts: true,
                     selector: specific(env.BUILD_NUMBER)
