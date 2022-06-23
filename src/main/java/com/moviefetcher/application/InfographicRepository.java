@@ -12,4 +12,6 @@ public interface InfographicRepository {
     Infographic save(Infographic entity);
 
     boolean existsByCreationDate(LocalDate creationDate);
+
+    void deleteById(Long infographicId);
 }

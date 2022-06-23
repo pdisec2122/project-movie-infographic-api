@@ -7,4 +7,5 @@ import java.util.List;
 public interface MovieRepository {
 
     List<Movie> listByInfographicId(Long infographicId, int page, int size);
+
 }

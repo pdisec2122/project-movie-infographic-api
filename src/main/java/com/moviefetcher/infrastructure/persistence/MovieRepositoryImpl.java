@@ -22,4 +22,5 @@ public class MovieRepositoryImpl implements MovieRepository {
     public List<Movie> listByInfographicId(Long infographicId, int page, int size) {
         return jpaRepository.findAllByInfographic_IdOrderByVoteAverageDesc(infographicId, PageRequest.of(page - 1, size));
     }
+
 }

@@ -39,4 +39,9 @@ public class MovieInfographicsServiceImpl implements MovieInfographicsService {
     public void createInfographic() {
         creator.createInfographic();
     }
+
+    @Override
+    public void deleteById(Long infographicId) {
+        infographicRepository.deleteById(infographicId);
+    }
 }

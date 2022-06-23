@@ -32,4 +32,9 @@ public class InfographicRepositoryImpl implements InfographicRepository {
     public boolean existsByCreationDate(LocalDate creationDate) {
         return jpaRepository.existsByCreationDate(creationDate);
     }
+
+    @Override
+    public void deleteById(Long infographicId) {
+        jpaRepository.deleteById(infographicId);
+    }
 }

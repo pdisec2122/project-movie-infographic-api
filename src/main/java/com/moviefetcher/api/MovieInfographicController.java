@@ -38,6 +38,12 @@ public class MovieInfographicController extends ErrorController {
         return service.listByInfographicId(infographicId, page, size).stream().map(JsonMapper::toJson).collect(Collectors.toList());
     }
 
+    @DeleteMapping("/{infographicId}")
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteById(@PathVariable("infographicId") Long infographicId) {
+        service.deleteById(infographicId);
+    }
+
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
     public void create() {

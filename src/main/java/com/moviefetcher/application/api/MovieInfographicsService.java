@@ -12,4 +12,6 @@ public interface MovieInfographicsService {
     List<Movie> listByInfographicId(Long infographicId, int page, int size);
 
     void createInfographic();
+
+    void deleteById(Long infographicId);
 }
