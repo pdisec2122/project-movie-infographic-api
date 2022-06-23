@@ -25,7 +25,7 @@ public class MovieRepositoryImpl implements MovieRepository {
 
     @Override
     public void deleteByInfographicId(Long infographicId) {
-        jpaRepository.deleteByInfographicId(infographicId);
+        jpaRepository.deleteAllByInfographic_Id(infographicId);
     }
 
 }
