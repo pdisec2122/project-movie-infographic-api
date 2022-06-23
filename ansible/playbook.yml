@@ -37,7 +37,7 @@
 
     - name: Create docker network
       docker_network:
-        name: "{{ mysql_network }}"
+        name: "{{ docker_network }}"
         state: present
     
     - name: Create mysql container
@@ -52,7 +52,14 @@
         ports:
           - "3306:3306"
         networks:
-          - name: "{{ mysql_network }}"
+          - name: "{{ docker_network }}"
+
+    - name: Wait for mysql to be available
+      shell: docker run --rm --link mysqldb mysql:8 sh -c 'mysql -h "{{ mysql_container_name }}" -u "{{  mysql_container_username }}" -p{{mysql_container_password}} || true'
+      register: result
+      until: result.stderr.find("Can't connect to MySQL") == -1
+      retries: 10
+      delay: 3
 
     - name: Create default containers
       docker_container:
@@ -63,4 +70,4 @@
         ports:
           - "8082:8082"
         networks:
-          - name: "{{ mysql_network }}"
+          - name: "{{ docker_network }}"
