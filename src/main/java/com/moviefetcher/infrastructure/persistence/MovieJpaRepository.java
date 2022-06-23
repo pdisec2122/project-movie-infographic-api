@@ -10,4 +10,5 @@ public interface MovieJpaRepository extends JpaRepository<Movie, Long> {
 
     List<Movie> findAllByInfographic_IdOrderByVoteAverageDesc(Long infographicId, Pageable pageable);
 
+    void deleteByInfographicId(Long infographicId);
 }

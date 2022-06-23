@@ -8,4 +8,5 @@ public interface MovieRepository {
 
     List<Movie> listByInfographicId(Long infographicId, int page, int size);
 
+    void deleteByInfographicId(Long infographicId);
 }

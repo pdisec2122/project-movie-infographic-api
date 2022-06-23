@@ -42,6 +42,7 @@ public class MovieInfographicsServiceImpl implements MovieInfographicsService {
 
     @Override
     public void deleteById(Long infographicId) {
+        movieRepository.deleteByInfographicId(infographicId);
         infographicRepository.deleteById(infographicId);
     }
 }
